@@ -84,7 +84,23 @@ if (isset($_COOKIE["korisnik"])){
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+    <script>
+        function pretrazi() {
+            let spec = $("#spec").val();
+            let datum = $("#datum").val();
 
+            $.ajax({
+                url: 'ajax-pretraga.php',
+                data: {
+                    spec: spec,
+                    datum: datum
+                },
+                success: function (data) {
+                    $("#rezultat").html(data);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
